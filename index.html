@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SolSolum</title>
   <meta name="description" content="SolSolum is an indie game studio creating interactive entertainment, character-driven worlds, and K-pop inspired experiences." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SolSolum" />
+  <meta property="og:description" content="SolSolum is an indie game studio creating interactive entertainment, character-driven worlds, and K-pop inspired experiences." />
+  <meta property="og:url" content="https://solsolum.studio" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="SolSolum" />
+  <meta name="twitter:description" content="SolSolum is an indie game studio creating interactive entertainment, character-driven worlds, and K-pop inspired experiences." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" />
   <style>
     :root {
       --bg: #f7eee9;
@@ -167,6 +177,15 @@
       margin: 0 auto 36px;
     }
 
+    .section-heading {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -213,6 +232,7 @@
     @media (max-width: 760px) {
       header {
         align-items: flex-start;
+        flex-wrap: wrap;
         gap: 16px;
       }
 
@@ -243,7 +263,7 @@
     </header>
 
     <main>
-      <section class="hero" id="about">
+      <section class="hero" id="about" aria-label="About SolSolum">
         <div>
           <div class="eyebrow">Indie game studio</div>
           <h1>Worlds with heart, light, and rhythm.</h1>
@@ -268,18 +288,21 @@
         </aside>
       </section>
 
-      <section class="grid" id="projects">
-        <div class="info">
-          <h3>Games</h3>
-          <p>Original interactive entertainment for web, mobile, and future platforms.</p>
-        </div>
-        <div class="info">
-          <h3>Characters</h3>
-          <p>Expressive avatars, stories, and emotional systems built around player identity.</p>
-        </div>
-        <div class="info">
-          <h3>Creative Technology</h3>
-          <p>Experiments in AI-assisted storytelling, game UI, and community-driven development.</p>
+      <section id="projects">
+        <h2 class="section-heading">What we build</h2>
+        <div class="grid">
+          <div class="info">
+            <h3>Games</h3>
+            <p>Original interactive entertainment for web, mobile, and future platforms.</p>
+          </div>
+          <div class="info">
+            <h3>Characters</h3>
+            <p>Expressive avatars, stories, and emotional systems built around player identity.</p>
+          </div>
+          <div class="info">
+            <h3>Creative Technology</h3>
+            <p>Experiments in AI-assisted storytelling, game UI, and community-driven development.</p>
+          </div>
         </div>
       </section>
     </main>
