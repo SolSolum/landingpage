@@ -63,6 +63,19 @@
       display: block;
     }
 
+    .header-brand {
+      display: flex;
+      align-items: center;
+      margin-right: auto;
+    }
+
+    .studio-name {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-left: 12px;
+    }
+
     nav a {
       color: var(--muted);
       text-decoration: none;
@@ -338,7 +351,10 @@
 <body>
   <div class="page">
     <header>
-      <img class="logo" src="assets/logo_simple1.png" alt="SolSolum Studio" />
+      <div class="header-brand">
+        <img class="logo" src="assets/logo_simple1.png" alt="SolSolum Studio" />
+        <span class="studio-name">SolSolum Studio</span>
+      </div>
       <nav aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
