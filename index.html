@@ -237,18 +237,20 @@
     }
 
     .featured-screenshots {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
       gap: 12px;
-      align-items: start;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 8px;
     }
 
     .featured-screenshots img {
-      width: 100%;
+      flex: 0 0 45%;
       height: 380px;
       object-fit: cover;
       object-position: top;
       border-radius: 16px;
+      scroll-snap-align: start;
     }
 
     .section-heading {
@@ -383,6 +385,8 @@
           <div class="featured-screenshots">
             <img src="assets/screenshot2.png" alt="DebutK K-POP ME! app UI" />
             <img src="assets/screenshot1.png" alt="DebutK character on stage" />
+            <img src="assets/screenshot3.png" alt="DebutK character customization - cool style" />
+            <img src="assets/screenshot4.png" alt="DebutK character customization - cute style" />
           </div>
         </div>
       </section>
