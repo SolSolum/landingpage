@@ -51,6 +51,20 @@
       text-decoration: none;
     }
 
+    .lang-btn {
+      background: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-family: inherit;
+      color: var(--muted);
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .lang-btn:hover { color: var(--text); }
+
     main {
       flex: 1;
       width: min(800px, calc(100% - 40px));
@@ -110,41 +124,114 @@
     <header>
       <img class="logo" src="assets/logo_simple1.png" alt="SolSolum Studio" />
       <a class="studio-name" href="/">SolSolum Studio</a>
+      <button class="lang-btn" id="lang-toggle" onclick="toggleLang()">한국어</button>
     </header>
 
     <main>
-      <a class="back" href="index.html">&#8592; Back</a>
-      <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: May 15, 2026</p>
+      <a class="back" href="index.html" data-i18n="back">&#8592; Back</a>
+      <h1 data-i18n="page-title">Privacy Policy</h1>
+      <p class="updated" data-i18n="updated">Last updated: May 15, 2026</p>
 
-      <h2>Overview</h2>
-      <p>SolSolum LLC ("we", "us", or "our") built DebutK: K-POP ME! as a free-to-play mobile game. This page informs you of our policies regarding the collection, use, and disclosure of personal information.</p>
+      <h2 data-i18n="h2-overview">Overview</h2>
+      <p data-i18n="p-overview">SolSolum LLC ("we", "us", or "our") built DebutK: K-POP ME! as a free-to-play mobile game. This page informs you of our policies regarding the collection, use, and disclosure of personal information.</p>
 
-      <h2>Information We Collect</h2>
-      <p>We do not collect, store, or transmit any personal information. DebutK: K-POP ME! does not require an account, login, or any personal details to play.</p>
-      <p>All data created within the app — including your idol's name, concept, and appearance — is stored locally on your device only and is never sent to our servers.</p>
+      <h2 data-i18n="h2-collect">Information We Collect</h2>
+      <p data-i18n="p-collect-1">We do not collect, store, or transmit any personal information. DebutK: K-POP ME! does not require an account, login, or any personal details to play.</p>
+      <p data-i18n="p-collect-2">All data created within the app — including your idol's name, concept, and appearance — is stored locally on your device only and is never sent to our servers.</p>
 
-      <h2>Third-Party Services</h2>
-      <p>At this time, the app does not use third-party analytics, advertising SDKs, or external data collection services.</p>
+      <h2 data-i18n="h2-third">Third-Party Services</h2>
+      <p data-i18n="p-third">At this time, the app does not use third-party analytics, advertising SDKs, or external data collection services.</p>
 
-      <h2>Children's Privacy</h2>
-      <p>Our app does not collect personal information from anyone, including children under the age of 13. Since no data is collected, there is no risk of children's data being stored or shared.</p>
+      <h2 data-i18n="h2-children">Children's Privacy</h2>
+      <p data-i18n="p-children">Our app does not collect personal information from anyone, including children under the age of 13. Since no data is collected, there is no risk of children's data being stored or shared.</p>
 
-      <h2>Data Retention</h2>
-      <p>Because we do not collect any data, we have no data to retain or delete. Data stored locally on your device can be removed by uninstalling the app.</p>
+      <h2 data-i18n="h2-retention">Data Retention</h2>
+      <p data-i18n="p-retention">Because we do not collect any data, we have no data to retain or delete. Data stored locally on your device can be removed by uninstalling the app.</p>
 
-      <h2>Changes to This Policy</h2>
-      <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. We encourage you to review this page periodically.</p>
+      <h2 data-i18n="h2-changes">Changes to This Policy</h2>
+      <p data-i18n="p-changes">We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. We encourage you to review this page periodically.</p>
 
-      <h2>Contact Us</h2>
-      <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:hello@solsolum.studio">hello@solsolum.studio</a>.</p>
-      <p>SolSolum LLC<br />California, United States</p>
+      <h2 data-i18n="h2-contact">Contact Us</h2>
+      <p data-i18n-html="p-contact">If you have any questions about this Privacy Policy, please contact us at <a href="mailto:hello@solsolum.studio">hello@solsolum.studio</a>.</p>
+      <p data-i18n-html="p-address">SolSolum LLC<br />California, United States</p>
     </main>
 
     <footer>
-      <span>© 2026 SolSolum LLC. All rights reserved.</span>
+      <span data-i18n="footer-copy">© 2026 SolSolum LLC. All rights reserved.</span>
       <span><a href="mailto:hello@solsolum.studio">hello@solsolum.studio</a></span>
     </footer>
   </div>
+
+  <script>
+    const translations = {
+      en: {
+        'back': '← Back',
+        'page-title': 'Privacy Policy',
+        'updated': 'Last updated: May 15, 2026',
+        'h2-overview': 'Overview',
+        'p-overview': 'SolSolum LLC ("we", "us", or "our") built DebutK: K-POP ME! as a free-to-play mobile game. This page informs you of our policies regarding the collection, use, and disclosure of personal information.',
+        'h2-collect': 'Information We Collect',
+        'p-collect-1': 'We do not collect, store, or transmit any personal information. DebutK: K-POP ME! does not require an account, login, or any personal details to play.',
+        'p-collect-2': "All data created within the app — including your idol's name, concept, and appearance — is stored locally on your device only and is never sent to our servers.",
+        'h2-third': 'Third-Party Services',
+        'p-third': 'At this time, the app does not use third-party analytics, advertising SDKs, or external data collection services.',
+        'h2-children': "Children's Privacy",
+        'p-children': 'Our app does not collect personal information from anyone, including children under the age of 13. Since no data is collected, there is no risk of children\'s data being stored or shared.',
+        'h2-retention': 'Data Retention',
+        'p-retention': 'Because we do not collect any data, we have no data to retain or delete. Data stored locally on your device can be removed by uninstalling the app.',
+        'h2-changes': 'Changes to This Policy',
+        'p-changes': 'We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. We encourage you to review this page periodically.',
+        'h2-contact': 'Contact Us',
+        'p-contact': 'If you have any questions about this Privacy Policy, please contact us at <a href="mailto:hello@solsolum.studio">hello@solsolum.studio</a>.',
+        'p-address': 'SolSolum LLC<br />California, United States',
+        'footer-copy': '© 2026 SolSolum LLC. All rights reserved.',
+      },
+      ko: {
+        'back': '← 뒤로',
+        'page-title': '개인정보처리방침',
+        'updated': '최종 업데이트: 2026년 5월 15일',
+        'h2-overview': '개요',
+        'p-overview': 'SolSolum LLC(이하 "당사")는 DebutK: K-POP ME!를 무료 모바일 게임으로 제공합니다. 이 페이지는 개인정보의 수집, 이용 및 공개에 관한 당사의 정책을 안내합니다.',
+        'h2-collect': '수집하는 정보',
+        'p-collect-1': '당사는 개인정보를 수집, 저장 또는 전송하지 않습니다. DebutK: K-POP ME!는 게임 이용을 위해 계정, 로그인 또는 개인 정보를 요구하지 않습니다.',
+        'p-collect-2': '앱 내에서 생성된 모든 데이터(아이돌 이름, 콘셉트, 외형 등)는 기기에만 저장되며 서버로 전송되지 않습니다.',
+        'h2-third': '제3자 서비스',
+        'p-third': '현재 본 앱은 제3자 분석 도구, 광고 SDK 또는 외부 데이터 수집 서비스를 사용하지 않습니다.',
+        'h2-children': '아동 개인정보 보호',
+        'p-children': '본 앱은 13세 미만 아동을 포함한 누구로부터도 개인정보를 수집하지 않습니다. 데이터를 수집하지 않으므로 아동의 정보가 저장되거나 공유될 위험이 없습니다.',
+        'h2-retention': '데이터 보존',
+        'p-retention': '당사는 데이터를 수집하지 않으므로 보존하거나 삭제할 데이터가 없습니다. 기기에 저장된 데이터는 앱을 삭제하면 제거됩니다.',
+        'h2-changes': '정책 변경',
+        'p-changes': '본 개인정보처리방침은 수시로 업데이트될 수 있습니다. 변경 사항은 업데이트된 날짜와 함께 이 페이지에 게시됩니다. 주기적으로 확인하시기를 권장합니다.',
+        'h2-contact': '문의하기',
+        'p-contact': '개인정보처리방침에 관한 문의는 <a href="mailto:hello@solsolum.studio">hello@solsolum.studio</a>로 연락해 주세요.',
+        'p-address': 'SolSolum LLC<br />캘리포니아주, 미국',
+        'footer-copy': '© 2026 SolSolum LLC. 모든 권리 보유.',
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'en';
+
+    function applyLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (translations[lang][key]) el.innerHTML = translations[lang][key];
+      });
+      document.getElementById('lang-toggle').textContent = lang === 'en' ? '한국어' : 'English';
+      document.documentElement.lang = lang === 'en' ? 'en' : 'ko';
+      localStorage.setItem('lang', lang);
+      currentLang = lang;
+    }
+
+    function toggleLang() {
+      applyLang(currentLang === 'en' ? 'ko' : 'en');
+    }
+
+    applyLang(currentLang);
+  </script>
 </body>
 </html>

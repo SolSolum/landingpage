@@ -51,6 +51,20 @@
       text-decoration: none;
     }
 
+    .lang-btn {
+      background: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-family: inherit;
+      color: var(--muted);
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .lang-btn:hover { color: var(--text); }
+
     main {
       flex: 1;
       width: min(800px, calc(100% - 40px));
@@ -119,24 +133,65 @@
     <header>
       <img class="logo" src="assets/logo_simple1.png" alt="SolSolum Studio" />
       <a class="studio-name" href="/">SolSolum Studio</a>
+      <button class="lang-btn" id="lang-toggle" onclick="toggleLang()">한국어</button>
     </header>
 
     <main>
-      <a class="back" href="index.html">&#8592; Back</a>
-      <h1>Support</h1>
-      <p>Have a question or running into an issue with DebutK: K-POP ME!? We'd love to help.</p>
-      <p>Send us an email and we'll get back to you as soon as we can.</p>
+      <a class="back" href="index.html" data-i18n="back">&#8592; Back</a>
+      <h1 data-i18n="page-title">Support</h1>
+      <p data-i18n="p-intro-1">Have a question or running into an issue with DebutK: K-POP ME!? We'd love to help.</p>
+      <p data-i18n="p-intro-2">Send us an email and we'll get back to you as soon as we can.</p>
 
       <div class="contact-card">
-        <p>Email us at</p>
+        <p data-i18n="p-email-label">Email us at</p>
         <a href="mailto:hello@solsolum.studio">hello@solsolum.studio</a>
       </div>
     </main>
 
     <footer>
-      <span>© 2026 SolSolum LLC. All rights reserved.</span>
+      <span data-i18n="footer-copy">© 2026 SolSolum LLC. All rights reserved.</span>
       <span><a href="mailto:hello@solsolum.studio">hello@solsolum.studio</a></span>
     </footer>
   </div>
+
+  <script>
+    const translations = {
+      en: {
+        'back': '← Back',
+        'page-title': 'Support',
+        'p-intro-1': "Have a question or running into an issue with DebutK: K-POP ME!? We'd love to help.",
+        'p-intro-2': "Send us an email and we'll get back to you as soon as we can.",
+        'p-email-label': 'Email us at',
+        'footer-copy': '© 2026 SolSolum LLC. All rights reserved.',
+      },
+      ko: {
+        'back': '← 뒤로',
+        'page-title': '고객지원',
+        'p-intro-1': 'DebutK: K-POP ME!에 대해 궁금한 점이나 문제가 있으신가요? 기꺼이 도와드리겠습니다.',
+        'p-intro-2': '이메일을 보내주시면 최대한 빠르게 답변드리겠습니다.',
+        'p-email-label': '이메일 문의',
+        'footer-copy': '© 2026 SolSolum LLC. 모든 권리 보유.',
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'en';
+
+    function applyLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      document.getElementById('lang-toggle').textContent = lang === 'en' ? '한국어' : 'English';
+      document.documentElement.lang = lang === 'en' ? 'en' : 'ko';
+      localStorage.setItem('lang', lang);
+      currentLang = lang;
+    }
+
+    function toggleLang() {
+      applyLang(currentLang === 'en' ? 'ko' : 'en');
+    }
+
+    applyLang(currentLang);
+  </script>
 </body>
 </html>

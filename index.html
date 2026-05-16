@@ -87,6 +87,20 @@
       color: var(--text);
     }
 
+    .lang-btn {
+      background: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-family: inherit;
+      color: var(--muted);
+      cursor: pointer;
+      margin-left: 20px;
+    }
+
+    .lang-btn:hover { color: var(--text); }
+
     main {
       flex: 1;
     }
@@ -356,46 +370,47 @@
         <span class="studio-name">SolSolum Studio</span>
       </div>
       <nav aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="mailto:hello@solsolum.studio">Contact</a>
+        <a href="#about" data-i18n="nav-about">About</a>
+        <a href="#projects" data-i18n="nav-projects">Projects</a>
+        <a href="mailto:hello@solsolum.studio" data-i18n="nav-contact">Contact</a>
+        <button class="lang-btn" id="lang-toggle" onclick="toggleLang()">한국어</button>
       </nav>
     </header>
 
     <main>
       <section class="hero" id="about" aria-label="About SolSolum">
         <div>
-          <div class="eyebrow">Indie game studio</div>
-          <h1>Worlds with heart, light, and dream.</h1>
-          <p>
+          <div class="eyebrow" data-i18n="eyebrow">Indie game studio</div>
+          <h1 data-i18n="hero-heading">Worlds with heart, light, and dream.</h1>
+          <p data-i18n="hero-desc">
             SolSolum is an independent game studio creating character-driven interactive entertainment,
             digital experiences, and K-pop inspired worlds.
           </p>
           <div class="actions">
-            <a class="btn primary" href="mailto:hello@solsolum.studio">Contact Us</a>
-            <a class="btn secondary" href="#projects">View Projects</a>
+            <a class="btn primary" href="mailto:hello@solsolum.studio" data-i18n="btn-contact">Contact Us</a>
+            <a class="btn secondary" href="#projects" data-i18n="btn-projects">View Projects</a>
           </div>
         </div>
 
       </section>
 
       <section id="projects">
-        <h2 class="section-heading">Projects</h2>
+        <h2 class="section-heading" data-i18n="section-projects">Projects</h2>
         <div class="featured-project">
           <div>
-            <div class="badge">Launching Soon</div>
+            <div class="badge" data-i18n="badge">Launching Soon</div>
             <h3 class="featured-title">DebutK: K-POP ME!</h3>
-            <p class="featured-desc">
+            <p class="featured-desc" data-i18n="featured-desc-1">
               Create your own K-pop idol — choose your stage name, define your concept, style your look, and share your debut with the world.
             </p>
-            <p class="featured-desc">
+            <p class="featured-desc" data-i18n="featured-desc-2">
               The first experience in the DebutK universe, a growing platform of idol-driven games and interactive worlds.
             </p>
             <ul class="feature-list">
-              <li>Create your idol</li>
-              <li>Define who they are</li>
-              <li>Save your look</li>
-              <li>Share your identity</li>
+              <li data-i18n="feature-1">Create your idol</li>
+              <li data-i18n="feature-2">Define who they are</li>
+              <li data-i18n="feature-3">Save your look</li>
+              <li data-i18n="feature-4">Share your identity</li>
             </ul>
           </div>
           <div class="featured-screenshots">
@@ -408,34 +423,114 @@
       </section>
 
       <section>
-        <h2 class="section-heading">What we build</h2>
+        <h2 class="section-heading" data-i18n="section-build">What we build</h2>
         <div class="grid">
           <div class="info">
-            <h3>Games</h3>
-            <p>Original interactive entertainment for web, mobile, and future platforms.</p>
+            <h3 data-i18n="games-title">Games</h3>
+            <p data-i18n="games-desc">Original interactive entertainment for web, mobile, and future platforms.</p>
           </div>
           <div class="info">
-            <h3>Characters</h3>
-            <p>Expressive avatars, stories, and emotional systems built around player identity.</p>
+            <h3 data-i18n="chars-title">Characters</h3>
+            <p data-i18n="chars-desc">Expressive avatars, stories, and emotional systems built around player identity.</p>
           </div>
           <div class="info">
-            <h3>Creative Technology</h3>
-            <p>Experiments in AI-assisted storytelling, game UI, and community-driven development.</p>
+            <h3 data-i18n="tech-title">Creative Technology</h3>
+            <p data-i18n="tech-desc">Experiments in AI-assisted storytelling, game UI, and community-driven development.</p>
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <span>© 2026 SolSolum LLC. All rights reserved.</span>
+      <span data-i18n="footer-copy">© 2026 SolSolum LLC. All rights reserved.</span>
       <span>
-        <a href="support.html">Support</a>
+        <a href="support.html" data-i18n="footer-support">Support</a>
         &nbsp;·&nbsp;
-        <a href="privacy.html">Privacy Policy</a>
+        <a href="privacy.html" data-i18n="footer-privacy">Privacy Policy</a>
         &nbsp;·&nbsp;
         <a href="mailto:hello@solsolum.studio">hello@solsolum.studio</a>
       </span>
     </footer>
   </div>
+
+  <script>
+    const translations = {
+      en: {
+        'nav-about': 'About',
+        'nav-projects': 'Projects',
+        'nav-contact': 'Contact',
+        'eyebrow': 'Indie game studio',
+        'hero-heading': 'Worlds with heart, light, and dream.',
+        'hero-desc': 'SolSolum is an independent game studio creating character-driven interactive entertainment, digital experiences, and K-pop inspired worlds.',
+        'btn-contact': 'Contact Us',
+        'btn-projects': 'View Projects',
+        'section-projects': 'Projects',
+        'badge': 'Launching Soon',
+        'featured-desc-1': 'Create your own K-pop idol — choose your stage name, define your concept, style your look, and share your debut with the world.',
+        'featured-desc-2': 'The first experience in the DebutK universe, a growing platform of idol-driven games and interactive worlds.',
+        'feature-1': 'Create your idol',
+        'feature-2': 'Define who they are',
+        'feature-3': 'Save your look',
+        'feature-4': 'Share your identity',
+        'section-build': 'What we build',
+        'games-title': 'Games',
+        'games-desc': 'Original interactive entertainment for web, mobile, and future platforms.',
+        'chars-title': 'Characters',
+        'chars-desc': 'Expressive avatars, stories, and emotional systems built around player identity.',
+        'tech-title': 'Creative Technology',
+        'tech-desc': 'Experiments in AI-assisted storytelling, game UI, and community-driven development.',
+        'footer-copy': '© 2026 SolSolum LLC. All rights reserved.',
+        'footer-support': 'Support',
+        'footer-privacy': 'Privacy Policy',
+      },
+      ko: {
+        'nav-about': '소개',
+        'nav-projects': '프로젝트',
+        'nav-contact': '문의',
+        'eyebrow': '인디 게임 스튜디오',
+        'hero-heading': '마음, 빛, 그리고 꿈으로 만든 세계.',
+        'hero-desc': 'SolSolum은 캐릭터 중심의 인터랙티브 엔터테인먼트, 디지털 경험, K-pop 세계를 만드는 인디 게임 스튜디오입니다.',
+        'btn-contact': '문의하기',
+        'btn-projects': '프로젝트 보기',
+        'section-projects': '프로젝트',
+        'badge': '출시 예정',
+        'featured-desc-1': '나만의 K-pop 아이돌을 만들어 보세요 — 무대 이름을 정하고, 콘셉트를 잡고, 스타일을 완성하고, 데뷔를 전 세계에 알리세요.',
+        'featured-desc-2': '아이돌 중심의 게임과 인터랙티브 세계가 펼쳐지는 DebutK 유니버스의 첫 번째 경험.',
+        'feature-1': '아이돌 만들기',
+        'feature-2': '정체성 설정하기',
+        'feature-3': '룩 저장하기',
+        'feature-4': '나만의 아이덴티티 공유하기',
+        'section-build': '우리가 만드는 것',
+        'games-title': '게임',
+        'games-desc': '웹, 모바일, 미래 플랫폼을 위한 오리지널 인터랙티브 엔터테인먼트.',
+        'chars-title': '캐릭터',
+        'chars-desc': '플레이어의 정체성을 중심으로 만든 표현력 있는 아바타, 스토리, 감성 시스템.',
+        'tech-title': '크리에이티브 테크놀로지',
+        'tech-desc': 'AI 기반 스토리텔링, 게임 UI, 커뮤니티 중심 개발 실험.',
+        'footer-copy': '© 2026 SolSolum LLC. 모든 권리 보유.',
+        'footer-support': '고객지원',
+        'footer-privacy': '개인정보처리방침',
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'en';
+
+    function applyLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      document.getElementById('lang-toggle').textContent = lang === 'en' ? '한국어' : 'English';
+      document.documentElement.lang = lang === 'en' ? 'en' : 'ko';
+      localStorage.setItem('lang', lang);
+      currentLang = lang;
+    }
+
+    function toggleLang() {
+      applyLang(currentLang === 'en' ? 'ko' : 'en');
+    }
+
+    applyLang(currentLang);
+  </script>
 </body>
 </html>
